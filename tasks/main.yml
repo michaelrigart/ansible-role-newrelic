@@ -1,0 +1,31 @@
+---
+
+- name: check for newrelic_license_key
+  fail:
+    msg: 'newrelic_license_key has not been defined'
+  when: not newrelic_license_key
+
+- include: debian.yml
+  when: ansible_os_family == 'Debian'
+  tags: package
+
+- include: redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags: package
+
+- name: configure New Relic Sysmond
+  template:
+    src: nrsysmond.cfg.j2
+    dest: /etc/newrelic/nrsysmond.cfg
+    group: newrelic
+    owner: root
+    mode: 0640
+  notify: restart_newrelic
+  tags: configuration
+
+- name: start/stop newrelic-sysmond service
+  service:
+    name: newrelic-sysmond
+    state: '{{ newrelic_service_state }}'
+    enabled: '{{ newrelic_service_enabled }}'
+  tags: service

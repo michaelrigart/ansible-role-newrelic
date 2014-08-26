@@ -1,0 +1,7 @@
+---
+
+newrelic_apt_key_url: https://download.newrelic.com/548C16BF.gpg
+newrelic_apt_key_id: 548C16BF
+newrelic_apt_repo: 'deb http://apt.newrelic.com/debian/ newrelic non-free'
+newrelic_yum_repo_path: /etc/yum.repos.d
+newrelic_yum_repo_key_path: /etc/pki

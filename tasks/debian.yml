@@ -1,0 +1,29 @@
+---
+
+- name: Debian | add New Relic repo key
+  apt_key:
+    url: '{{ newrelic_apt_key_url }}'
+    id: '{{ newrelic_apt_key_id }}'
+
+- name: Debian | add New Relic repository
+  apt_repository:
+    repo: '{{ newrelic_apt_repo }}'
+    update_cache: yes
+
+- name: Debian | install specific New Relic Sysmond version
+  apt:
+    pkg: 'newrelic-sysmond={{ newrelic_pkg_version }}'
+    state: installed
+    update_cache: yes
+    cache_valid_time: 3600
+  when: newrelic_pkg_version
+  notify: restart_newrelic
+
+- name: Debian | install current/latest New Relic Sysmond version
+  apt:
+    pkg: newrelic-sysmond
+    state: '{{ newrelic_pkg_state }}'
+    update_cache: yes
+    cache_valid_time: 3600
+  when: not newrelic_pkg_version
+  notify: restart_newrelic

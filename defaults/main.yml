@@ -1,0 +1,16 @@
+---
+
+newrelic_license_key:
+newrelic_pkg_state: installed
+newrelic_pkg_version:
+newrelic_service_state: started
+newrelic_service_enabled: yes
+newrelic_loglevel: info
+newrelic_logfile: /var/log/newrelic/nrsysmond.log
+newrelic_proxy: False
+newrelic_ssl: "false"
+newrelic_ssl_ca_bundle: False
+newrelic_ssl_ca_path: False
+newrelic_pidfile: /var/run/newrelic/nrsysmond.pid
+newrelic_collector_host: collector.newrelic.com
+newrelic_timeout: 30

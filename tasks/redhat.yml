@@ -1,0 +1,31 @@
+---
+
+- name: RedHat | add New Relic repo key
+  copy:
+    src: RPM-GPG-KEY-NewRelic
+    dest: '{{ newrelic_yum_repo_key_path }}/rpm-gpg'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: RedHat | add Rew Relic repository
+  copy:
+    src: newrelic.repo
+    dest: '{{ newrelic_yum_repo_path }}/newrelic.repo'
+    owner: root
+    group: root
+    mode: 0644
+
+- name: RedHat | install specific New Relic Sysmond version
+  yum:
+    name: 'newrelic-sysmond={{ newrelic_pkg_version }}'
+    state: installed
+  when: newrelic_pkg_version
+  notify: restart_newrelic
+
+- name: RedHat | install current/latest New Relic Sysmond version
+  yum:
+    name: newrelic-sysmond
+    state: '{{ newrelic_pkg_state }}'
+  when: not newrelic_pkg_version
+  notify: restart_newrelic
