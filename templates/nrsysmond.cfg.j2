@@ -51,7 +51,7 @@ logfile={{ newrelic_logfile }}
 #            fred:secret@proxy.mydomain.com:8181
 # Default: none (use a direct connection)
 #
-{% if newrelic.proxy|default(False) != False %}
+{% if newrelic_proxy|default(False) != False %}
 proxy={{ newrelic_proxy }}
 {% else %}
 #proxy=
@@ -78,7 +78,7 @@ ssl={{ newrelic_ssl }}
 #          /etc/pki/tls/certs/ca-bundle.crt
 # Note   : Can also be set with the -b command line option.
 #
-{% if newrelic.ssl_ca_bundle|default(False) != False %}
+{% if newrelic_ssl_ca_bundle|default(False) != False %}
 ssl_ca_bundle={{ newrelic_ssl_ca_bundle }}
 {% else %}
 #ssl_ca_bundle=/path/to/your/bundle.crt
@@ -92,7 +92,7 @@ ssl_ca_bundle={{ newrelic_ssl_ca_bundle }}
 # Default: /etc/ssl/certs
 # Note   : Can also be set with the -S command line option.
 #
-{% if newrelic.ssl_ca_path|default(False) != False %}
+{% if newrelic_ssl_ca_path|default(False) != False %}
 ssl_ca_path={{ newrelic_ssl_ca_path }}
 {% else %}
 #ssl_ca_path=/etc/ssl/certs
