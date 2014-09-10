@@ -32,7 +32,7 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - { role: michaelrigart.newrelic }
+         - { role: MichaelRigart.newrelic }
 
 License
 -------
