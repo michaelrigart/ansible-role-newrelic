@@ -1,6 +1,6 @@
 Ansible NewRelic Role
 =====================
-[![Build Status](https://semaphoreci.com/api/v1/projects/9fff4b64-4628-47b3-9847-38d91acd5972/461758/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-newrelic) [![Build Status](https://travis-ci.org/michaelrigart/ansible-role-newrelic.svg?branch=master)](https://travis-ci.org/michaelrigart/ansible-role-newrelic)
+[![Build Status](https://semaphoreci.com/api/v1/projects/9fff4b64-4628-47b3-9847-38d91acd5972/461758/badge.svg)](https://semaphoreci.com/michaelrigart/ansible-role-newrelic)
 
 An ansible role for installing and configuring NewRelic.
  
