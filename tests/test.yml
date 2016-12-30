@@ -1,3 +1,3 @@
 - hosts: all
   roles:
-    - { role: ../../ansible-role-newrelic, newrelic_license_key: p4swqngHUiTNcEmqmLec8Hjhp9RkhbjHkjTKa3Re, sudo: Yes }
+    - { role: ../../ansible-role-newrelic, newrelic_license_key: p4swqngHUiTNcEmqmLec8Hjhp9RkhbjHkjTKa3Re, become: true }
